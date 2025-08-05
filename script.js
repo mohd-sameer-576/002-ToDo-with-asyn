@@ -1,8 +1,6 @@
 let input = document.querySelector("#input");
 let addbtn = document.querySelector("#add");
 let listcontainer = document.querySelector(".listcontainer");
-let removebtn = document.querySelector(".remove");
-let editbtn = document.querySelector(".edit");
 
 
 addbtn.addEventListener("click", addTask);
@@ -22,6 +20,14 @@ async function fetchTask(){
                 <button class="edit">Edit</button>
             </div>
             `
+            let removebtn = div.querySelector(".remove");
+            removebtn.addEventListener("click", function(){
+                removeTask(element.id);
+            })
+            let editbtn = div.querySelector(".edit");
+            editbtn.addEventListener("click", function(){
+                console.log(element.id);
+            })
             listcontainer.append(div);
         });
     }
@@ -47,7 +53,7 @@ async function addTask(){
 }
 fetchTask()
 
-async function removeTask(){
+async function removeTask(id){
     let data = await fetch(`${API}/${id}`, {
         method: "DELETE"
     })
@@ -57,8 +63,20 @@ async function removeTask(){
         console.log("Error")
     }
 }
-removebtn.addEventListener('click', removeTask)
-
+async function editTask(id, newText){
+    let data = await fetch(`${API}/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({text: newText})
+    })
+    if(data.status === 200){
+        fetchTask()
+    }else{
+        console.log("Error")
+    }
+}
 
 
 
