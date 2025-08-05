@@ -26,7 +26,10 @@ async function fetchTask(){
             })
             let editbtn = div.querySelector(".edit");
             editbtn.addEventListener("click", function(){
-                console.log(element.id);
+                let newText = prompt("Enter new text", element.text);
+                if(newText){
+                    editTask(element.id, newText);
+                }
             })
             listcontainer.append(div);
         });
@@ -35,7 +38,6 @@ async function fetchTask(){
 
 async function addTask(){
     let value = input.value;
-    console.log(value);
 
     let data = await fetch(API, {
         method: "POST",

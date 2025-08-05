@@ -120,3 +120,47 @@ h1 {
     font-weight: 500;
     color: #22223b;
 }
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    #input, #add {
+        font-size: 0.9rem;
+    }
+    .listcontainer .task {
+        font-size: 0.9rem;
+    }
+    .listcontainer .task .remove, 
+    .listcontainer .task .edit {
+        font-size: 0.9rem;
+    }
+    
+}
+@media screen and (max-width: 482px) {
+    .container {
+        width: auto;
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    #input, #add {
+        font-size: 0.8rem;
+    }
+    .listcontainer .task {
+        width: auto;
+        font-size: 0.5rem;
+    }
+    .listcontainer .task p {
+        font-size: 0.8rem;
+        margin-left: 0rem;
+    }
+    .listcontainer .task .remove, 
+    .listcontainer .task .edit {
+        font-size: 0.8rem;
+    }
+}
