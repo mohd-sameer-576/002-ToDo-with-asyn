@@ -19,6 +19,10 @@ body {
 }
 
 h1 {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 100;
     text-align: center;
     color: #22223b;
     margin-bottom: 1.5rem;
